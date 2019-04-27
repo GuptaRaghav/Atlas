@@ -1,0 +1,113 @@
+.bg-sidenuv{
+	background-color:#f8f9fa!important;
+	box-shadow: 0px 0px 8px #888888;
+}
+.bg-gray{
+	background-color:#dae0e5!important;
+}
+.fa-app-store-ios{
+	font-size:2rem;
+}
+.itemcontainer{
+    color: black;
+    width: 100%;
+    height: 100%;
+    display:none;
+	padding: 5px;
+}
+.sidenuv{
+	position: fixed;
+	height: 100%;
+}
+.sidenuvright{
+	position:fixed;
+	height:100%;
+	float:right !important;
+	right:0px !important;
+	width:500px !important;
+}
+table, th, td {
+  border:1px solid;
+}
+
+.priceBtn{
+	position:absolute;
+	right:60px;
+	bottom:80px;
+}
+
+.loading-screen{
+	
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: #dee1e2;
+    opacity: 10;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+	}
+	.loading{
+		position: absolute;
+		top: 38%;
+		left: 40%;
+	}
+
+.main{
+	position:fixed;
+	margin-left:25.8%;
+	width:50% !important;
+	margin-right:45% !important;
+	border:1px solid;
+	margin-top:5px;
+	margin-bottom:5px;
+	margin-right:20% !important;
+	bottom:0px;
+	top:60px;
+}
+
+
+.btn-circle {
+    width: 40px;
+    height: 40px;
+    padding: 6px 0px;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}
+.colorcontainer{
+	background-color: #6c757d;
+	width: 99%;
+	bottom: 4px;
+	position: absolute;
+	left: 4px;
+	right: 2px;
+	height: 100px;
+}
+.colors{
+	margin: 5px;
+}
+.btn-default{
+	background-color: white;
+}
+.img-thumbnail {
+    max-width: 100px!important;
+    height: 100px!important;
+}
+#container{
+	height: 100%;
+}
+.cloneimg{
+	cursor: move;
+	height: 100%;
+	min-height: 50px;
+	max-height: 100%;
+	width: 100%;
+	min-width: 100px;
+	position: absolute;
+	   
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<title>
+
+	</title>
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	</head>
+	<body>
+		<nav class="navbar navbar-light bg-gray">
+			<div class="container-fluid">
+				<span class="navbar-brand mb-0 h1"><i class="fab fa-app-store-ios"></i>A|L|P|H|A</span>
+
+				<div class="dropdown navbar-right">
+					<button id="user-email" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Test
+					</button>
+					<div class="dropdown-menu"
+					aria-labelledby="user-email">
+						<a class="dropdown-item" href="#">Logout</a>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<div class="row">
+			<div class="col-lg-3 bg-sidenuv sidenuv">
+				<ul class="nav nav-tabs">
+					<li class="nav-item">
+						<a class="nav-link" div-id="item1" href="#">Road</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" div-id="item2" href="#">Item1</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" div-id="item3" href="#">Item2</a>
+					</li>
+				</ul>
+				<div class="itemcontainer" id="item1" >
+						<img src="ComponentsSVG/ALPHA_10x20_6'_ALU_PIPE.svg" alt="..." id="img1" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_10x20_7'_ALU_PIPE.svg" alt="..." id="img2" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_10x20_8'_ALU_PIPE.svg" alt="..." id="img3" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_60x20_PLA.svg" alt="..." id="img4" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_600_1DROP.svg" alt="..." id="img5" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_600_2DR.svg" alt="..." id="img6" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_600_STUDY.svg" alt="..." id="img7" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_900_2DR.svg" alt="..." id="img8" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_900_3DR.svg" alt="..." id="img9" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_900_SLD.svg" alt="..." id="img10" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+						<img src="ComponentsSVG/ALPHA_900_STUDY.svg" alt="..." id="img11" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">
+
+				</div>
+				<div class="itemcontainer" id="item2" >
+						<img src="image/pole.jpg" alt="..." class="img-thumbnail">
+						<img src="image/pole.jpg" alt="..." class="img-thumbnail">
+
+				</div>
+				<div class="itemcontainer" id="item3" >
+						item 3
+				</div>
+			</div>
+			<div class="col-lg-9 main">
+				<canvas id="canvascontainer" style="border:1px solid #000000;" width="650" height="480" ondrop="Imgdrop(event)" ondragover="allowImgDrop(event)">
+
+				</canvas>
+				<div class="colorcontainer">
+					<h3>Colors</h1>
+					<div class="colors">
+						<button type="button" class="btn btn-default btn-circle"></i>
+						</button>
+						<button type="button" class="btn btn-primary btn-circle"></i>
+						</button>
+						<button type="button" class="btn btn-success btn-circle"></i>
+						</button>
+						<button type="button" class="btn btn-info btn-circle"></i>
+						</button>
+						<button type="button" class="btn btn-warning btn-circle"></i>
+						</button>
+						<button type="button" class="btn btn-danger btn-circle"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div class="col-lg-3 bg-sidenuv sidenuvright">
+				<p> Estimate Alpha System</p>
+				<table>
+				<tr><th>Sl</th> <th>Name</th> <th>Size</th> <th>Qty.</th> <th>Price</th></tr>
+				<tr> <td>1</td> <td>ALPHA_10x20_6'_ALU_PIPE</td> <td>M150*D200*H150</td> <td>01</td> <td>4000/-</td></tr>
+				<table>
+				
+				<div class="priceBtn"> 
+				<button>Download </button>
+				<button>Print </button>
+				<button>Submit </button>
+				</div>
+			</div>
+		</div>
+		
+		<div class="loading-screen" id="load-screen">
+			<div class="loading">
+				<img src="image/splash3.gif" style="width:300px; height:260px">
+			</div>	
+		</div>
+		<script>
+
+(function(){
+	setTimeout(function(){
+	  document.getElementById("load-screen").style.display = "none";
+	}, 2000);
+})();
+
+
+
+</script>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/app.js"></script>
+</html>
