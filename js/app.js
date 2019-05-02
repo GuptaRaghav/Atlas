@@ -1,4 +1,9 @@
 var i=0;
+images = [];
+$canvas = $('#canvascontainer');
+var isDragging = false;
+var startX;
+var startY;
 $(document).ready(function(){
   $(".nav-link").click(function(){
     $(".nav-link").removeClass('active');
@@ -21,51 +26,117 @@ function Imgdrop(ev) {
     nodeCopy.id = "newImg"+i; /* We cannot use the same ID */
     i++;
     this.canvas = document.getElementById("canvascontainer");
-    var ctx = this.canvas.getContext("2d");
+    this.ctx = this.canvas.getContext("2d");
     var img = new Image();
     img.src = nodeCopy.src;
-    ctx.drawImage(img,ev.offsetX,ev.offsetY);
-    var BB = this.canvas.getBoundingClientRect();
-    this.offsetX = BB.left;
-    this.offsetY = BB.top;
+    img.draggable = true;
+    this.ctx.drawImage(img,ev.offsetX,ev.offsetY);
+    //need to keep ref of all image alnng with their previous state
+    images.push({ 
+      image: img,
+      x: ev.offsetX,
+      y: ev.offsetY, 
+      scale: 0.5, 
+      isDragging: false,
+      url: img.src,
+      width: img.naturalWidth,
+      height: img.naturalHeight
+     });
     img.onload = function() {
       _MouseEvents();
     };
 }
 function _MouseEvents() {
   this.canvas.onmousedown = function(e) {
-     // tell the browser we're handling this mouse event
-     e.preventDefault();
-     e.stopPropagation();
+     /// tell browser we're handling this mouse event
+    e.preventDefault();
+    e.stopPropagation();
+
+    //get current position
+    var mx = parseInt(e.clientX - $canvas.offset().left);
+    var my = parseInt(e.clientY - $canvas.offset().top);
+
+    //test to see if mouse is in 1+ images
+    isDragging = false;
+    for (var i = 0; i < images.length; i++) {
+        var r = images[i];
+        if (mx > r.x && mx < r.x + r.width && my > r.y && my < r.y + r.height) {
+            //if true set r.isDragging=true
+            r.isDragging = true;
+            isDragging = true;
+        }
+    }
+    //save mouse position
+    startX = mx;
+    startY = my;
     
-     // get the current mouse position
-     var mx = parseInt(e.clientX - this.offsetX);
-     var my = parseInt(e.clientY - this.offsetY);
- 
-     // test each rect to see if mouse is inside
-     dragok = false;
-    //  for (var i = 0; i < rects.length; i++) {
-    //      var r = rects[i];
-    //      if (mx > r.x && mx < r.x + r.width && my > r.y && my < r.y + r.height) {
-    //          // if yes, set that rects isDragging=true
-    //          dragok = true;
-    //          r.isDragging = true;
-    //      }
-    //  }
-    //  // save the current mouse position
-    //  startX = mx;
-    //  startY = my;
   };
   this.canvas.onmousemove = function(e) {
+  // do nothing if we're not dragging
+  if (!isDragging) {return; }
 
+  //tell browser we're handling this mouse event
+  e.preventDefault();
+  e.stopPropagation();
+
+  canvas.style.cursor = "grabbing";
+  //get current mouseposition
+  var mx = parseInt(e.clientX - $canvas.offset().left);
+  var my = parseInt(e.clientY - $canvas.offset().top);
+
+  //calculate how far the mouse has moved;
+  var dx = mx - startX;
+  var dy = my - startY;
+
+  //move each image by how far the mouse moved
+  for (var i = 0; i < images.length; i++) {
+      var r = images[i];
+      if (r.isDragging) {
+          r.x += dx;
+          r.y += dy;
+      }
+  }
+
+  //reset the mouse positions for next mouse move;
+  startX = mx;
+  startY = my;
+
+  //re render the images
+  renderAll();
     
   };
-  canvas.onmouseup = function(e) {
+  this.canvas.onmouseup = function(e) {
+    //tell browser we're handling this mouse event
+    e.preventDefault();
+    e.stopPropagation();
+
+    // clear all the dragging flags
+    isDragging = false;
+    for (var i = 0; i < images.length; i++) {
+        images[i].isDragging = false;
+    }
+    canvas.style.cursor = "default";
     
   };
-  canvas.onmouseout = function(e) {
-    
+  this.canvas.onmouseout = function(e) {
+    //tell browser we're handling this mouse event
+    e.preventDefault();
+    e.stopPropagation();
+
+    // clear all the dragging flags
+    isDragging = false;
+    for (var i = 0; i < images.length; i++) {
+        images[i].isDragging = false;
+    }
   };
+}
+function renderAll() {
+  this.ctx.fillStyle = "#ffffff";
+  this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+  for (var i = 0; i < images.length; i++) {
+      var r = images[i];
+      this.ctx.drawImage(r.image, r.x, r.y);
+  }
 }
 
 /*  Dragging method starts   */
