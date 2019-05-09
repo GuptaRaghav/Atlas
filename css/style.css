@@ -81,12 +81,12 @@ table, th, td {
 }
 .colorcontainer{
 	background-color: #6c757d;
-	width: 99%;
+	width: auto;
 	bottom: 4px;
 	position: absolute;
 	left: 4px;
 	right: 2px;
-	height: 100px;
+	height: 50px;
 }
 .colors{
 	margin: 5px;
