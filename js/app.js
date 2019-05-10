@@ -20,7 +20,7 @@ function dragimg(ev){
   ev.dataTransfer.setData("text", ev.target.id);
 }
 function updateDescription(event){
-  descriptionElem.innerText = event.srcElement.src.split("/")[9] + " Selected";
+  descriptionElem.innerText = event.srcElement.src.split("/")[4] + " Selected";
 }
 function allowImgDrop(ev) {
   ev.preventDefault();
@@ -31,7 +31,7 @@ function updateTablePrice(imgPath){
   cell.innerText = itemCounter;
   itemCounter++;
   cell = botmRow.insertCell(1);
-  cell.innerText = imgPath.split("/")[9];
+  cell.innerText = imgPath.split("/")[4];
   cell = botmRow.insertCell(2);
   cell.innerText = "Size here";
   cell = botmRow.insertCell(3);
