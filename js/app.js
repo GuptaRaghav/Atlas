@@ -29,7 +29,7 @@ function dragimg(ev) {
 }
 function updateDescription(event) {
 
-  descriptionElem.innerText = event.srcElement.src.split("/")[8].split(".")[0] + " Selected";
+  descriptionElem.innerText = event.srcElement.src.split("/")[4].split(".")[0] + " Selected";
   sizeElem.innerText = " " + (Math.random() * 1000).toFixed() + "X" + (Math.random() * 1000).toFixed() + "X" + (Math.random() * 1000).toFixed();
   var material = " " + materials[Math.floor(Math.random() * materials.length)];
   materialElem.innerText = " " + material;
@@ -58,7 +58,7 @@ function insertNewRow(img) {
 }
 function updateTablePrice(img) {
   imgPath = img.src;
-  elemSearch = (imgPath.split("/")[8]).split(".")[0];
+  elemSearch = (imgPath.split("/")[4]).split(".")[0];
   var found = false;
   if (tablePrice.tBodies[0].rows.length != 0) {
     for (var i = 0; i < tablePrice.tBodies[0].rows.length; i++) {
