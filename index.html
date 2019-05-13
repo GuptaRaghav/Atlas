@@ -5,13 +5,13 @@
 	</title>
 	<head>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
 
 	</head>
 	<body>
-		
-		<div class="row">
+
+		<div class="row" id="main">
 			<div class="col-lg-3 col-md-3 col-sm-3 bg-sidenuv sidenuv">
 			<div class="alphabanner"> A|L|P|H|A</div>
 				<ul class="nav nav-tabs">
@@ -26,43 +26,87 @@
 					</li>
 				</ul>
 				<div class="itemcontainer" id="item1" >
-						 <img  src="ComponentsSVG/ALPHA_10x20_6_ALU_PIPE.svg" alt="..." id="img1" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
-						<img src="ComponentsSVG/ALPHA_10x20_7_ALU_PIPE.svg" alt="..." id="img2" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
-						<img src="ComponentsSVG/ALPHA_10x20_8_ALU_PIPE.svg" alt="..." id="img3" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)" > 
-						 <!-- <img src="ComponentsSVG/ALPHA_60x20_PLA.svg" alt="..." id="img4" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">  -->
-						<!-- <img src="ComponentsSVG/ALPHA_600_1DROP.svg" alt="..." id="img5" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">  -->
-						<!-- <img src="ComponentsSVG/ALPHA_600_2DR.svg" alt="..." id="img6" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">  -->
-						 <!-- <img src="ComponentsSVG/ALPHA_600_STUDY.svg" alt="..." id="img7" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">  -->
-						 <!-- <img src="ComponentsSVG/ALPHA_900_2DR.svg" alt="..." id="img8" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">  -->
-						 <!-- <img src="ComponentsSVG/ALPHA_900_3DR.svg" alt="..." id="img9" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)"> -->
-						<!-- <img src="ComponentsSVG/ALPHA_900_SLD.svg" alt="..." id="img10" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)"> -->
-						<!-- <img src="ComponentsSVG/ALPHA_900_STUDY.svg" alt="..." id="img11" class="img-thumbnail" draggable="true" ondragstart="dragimg(event)">  -->
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 item1-img-div">
+							 <img src="ComponentsSVG/3@4x.png" alt="200" id="img1" class="item1-img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_10x20_6_ALU_PIPE</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 item1-img-div">
+							<img src="ComponentsSVG/3@4x.png" alt="300" id="img2" class="item1-img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_10x20_7_ALU_PIPE</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 item1-img-div">
+							<img src="ComponentsSVG/3@4x.png" alt="400" id="img3" class="item1-img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)"onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_10x20_8_ALU_PIPE</p>
+						</div>
 
+					</div>
 				</div>
+
+
 				<div class="itemcontainer" id="item2" style="display:none;">
-						 <img src="ComponentsSVG/ALPHA_60x20_PLA.svg" alt="..." id="img4" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)"> 
-						<img src="ComponentsSVG/ALPHA_600_1DROP.svg" alt="..." id="img5" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)"> 
-						<img src="ComponentsSVG/ALPHA_600_2DR.svg" alt="..." id="img6" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)"onmouseover="updateDescription(event)"> 
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							 <img src="ComponentsSVG/ALPHA_60x20_PLA.svg" alt="350" id="img4" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_60x20_PLA</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							<img src="ComponentsSVG/Asset 1@4x.png" alt="450" id="img5" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_60x20_PLA</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							<img src="ComponentsSVG/ALPHA_600_2DR.svg" alt="550" id="img6" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)"onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_600_2DR</p>
+						</div>
 
 				</div>
+			</div>
+
+
 				<div class="itemcontainer" id="item3" style="display:none;">
-					 <img src="ComponentsSVG/ALPHA_600_STUDY.svg" alt="..." id="img7" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)"> 
-						 <img src="ComponentsSVG/ALPHA_900_2DR.svg" alt="..." id="img8" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)"> 
-						 <img src="ComponentsSVG/ALPHA_900_3DR.svg" alt="..." id="img9" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
-						<img src="ComponentsSVG/ALPHA_900_SLD.svg" alt="..." id="img10" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
-						<img src="ComponentsSVG/ALPHA_900_STUDY.svg" alt="..." id="img11" class="col-lg-3 col-md-3 col-sm-3 img-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)"> 
+					<div class="row">
+						<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							<img src="ComponentsSVG/ALPHA_600_STUDY.svg" alt="600" id="img7" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+						 	<p class="label">image 1</p>
+					 </div>
+					 <div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							 <img src="ComponentsSVG/ALPHA_900_2DR.svg" alt="700" id="img8" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_900_2DR</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							 <img src="ComponentsSVG/ALPHA_900_3DR.svg" alt="650" id="img9" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							 <p class="label">ALPHA_900_3DR</p>
+						</div>
+	  				<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							<img src="ComponentsSVG/1@4x.png" alt="900" id="img10" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							<p class="label">ALPHA_900_3DR</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 item-img-div">
+							<img src="ComponentsSVG/ALPHA_900_STUDY.svg" alt="1000" id="img11" class="img-elem-thumbnail" draggable="true" ondragstart="dragimg(event)" onmouseover="updateDescription(event)">
+							<p class="label">ALPHA_900_STUDY</p>
+						</div>
+					</div>
 				</div>
-				
 				<div class="banner-footer">
 				<p style="font-size: 0.8em;">Description :</p>
 				<p style="font-size: 0.6em;" id ="descriptionElem">Description will come here</p>
-				<div style="font-size: 0.4em; font-weight: bold; margin: 5px;">Size: M800 * D400 * H180 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; 
-				Material: _________ &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; Price: 1200/-</div>
+				<div style="display: flex; justify-content: space-between;">
+					<div>
+					<p style="font-size: 0.6em; float: left">Size :</p>
+					<p style="font-size: 0.6em; float: right" id="sizeElem"></p>
+				</div><div>
+					<p style="font-size: 0.6em;float: left">Material :</p>
+					<p style="font-size: 0.6em;float: right" id="materialElem"></p>
+				</div><div>
+					<p style="font-size: 0.6em;float: left">Price :</p>
+					<p style="font-size: 0.6em;float: right" id="priceElem"></p>
 				</div>
-				
-				
+				</div>
+				</div>
+
+
 			</div>
-			<div class="col-lg-9 col-md-9 col-sm-9 main">
+			<div class="col-lg-6 col-md-6 col-sm-6 canavas">
 				<canvas id="canvascontainer" width="1320" height="1000" ondrop="Imgdrop(event)" ondragover="allowImgDrop(event)">
 
 				</canvas>
@@ -84,54 +128,73 @@
 						</button>
 					</div>
 					<div style="width: 33%; flex: right;     text-align: right;" >
-							<button class="btn btn-round-corner" style="    margin-top: 20px;">Help </button><br>
-							<button class="btn btn-round-corner">Start Over </button>
+							<button class="btn btn-round-corner" style="    margin-top: 20px;" id="btnHelp">Help </button><br>
+							<button class="btn btn-round-corner" id="btnStartOver" onclick="clearCanvas(event)">Start Over </button>
 					</div>
-	
+
 				</div>
 			</div>
-			
-			
-			<div class="col-lg-3 col-md-3 col-sm-3 bg-sidenuv sidenuvright">
+
+
+			<div class="col-lg-3 col-md-3 col-sm-3 bg-sidenuv ">
 			<img src="spin.jpg" alt="..." style="    width: 50px; height: 50px; margin-left: 40px;">
 			<br><br>
 			<p style="    font-size: 1.2em; margin-left: 40px; font-weight: bold; color: gray;">  Estimate Alpha System</p>
 			<br>
+			<div class="pricetable">
 				<table class="table" id="tablePrice" style="font-size: 0.6em;   font-weight: bold;">
 				<thead class="thead-dark">
-					<tr><th>Sl</th> <th>Name</th> <th>Size</th> <th>Qty.</th> <th>Price</th></tr> 
+					<tr><th>Sl</th> <th>Name</th> <th>Size</th> <th>Qty.</th> <th>Price</th></tr>
 				</thead>
-				<tbody>
-					<!-- <tr> <td>1</td> <td>ALPHA_10x20_6'_ALU_PIPE</td> <td>M150*D200*H150</td> <td>01</td> <td>4000/-</td></tr> -->
-				</tbody>
+
+					<tbody id="pricebody">
+						<!-- <tr> <td>1</td> <td>ALPHA_10x20_6'_ALU_PIPE</td> <td>M150*D200*H150</td> <td>01</td> <td>4000/-</td></tr> -->
+					</tbody>
+					<tfoot style="display: block; background-color: #6c757d; float: right">
+							<tr>
+									<td> Total: </td>
+								
+									<td style="    text-align: right;     padding-right: 8px!important;"></td>
+								</tr>
+								<tr>
+									<td> GST @18%: </td>
+									<td style="    text-align: right; padding-right: 8px!important;"></td>
+								</tr>
+								<tr>
+									<td> Estimated amount: </td>
+									<td style="    text-align: right; padding-right: 8px!important;"></td>
+								</tr>
+					</tfoot>
+
+
 				</table>
-				
-				<div class="priceBtn"> 
-					<table class="table" id="pricetable">
+
+				<div class="priceBtn">
+					<!-- <table class="table" id="pricetable">
 					<tbody >
 					<tr><td> Total: </td> <td style="    text-align: right;     padding-right: 8px!important;"> 80,000/-</td> </tr>
 					<tr><td> GST @18%: </td> <td style="    text-align: right; padding-right: 8px!important;"> 14,400/-</td> </tr>
 					<tr><td> Estimated amount: </td> <td style="    text-align: right; padding-right: 8px!important;"> 94,400/-</td> </tr>
 					</tbody>
-					</table>
+					</table> -->
 					<div style="width: 100%; display: flex;">
-						<div>
-							<button class="btn btn-round-corner" style="    width: 120px!important;">Download </button>
-						</div>
-						<div>
-							<button class="btn btn-round-corner">Print </button>
-						</div>
-						<div>
-							<button class="btn btn-round-corner">Submit </button>
-						</div>
+
+							<button class="btn btn-round-corner" style=" width: 120px!important;" id="btnDonload">Download </button>
+
+
+							<button class="btn btn-round-corner" id="btnPrint">Print </button>
+
+
+							<button class="btn btn-round-corner" id="btnSubmit">Submit </button>
+
 					</div>
 				</div>
 		</div>
-		
+
 		<div class="loading-screen" id="load-screen">
 			<div class="loading">
 				<img src="image/splash3.gif" style="width:300px; height:260px">
-			</div>	
+			</div>
 		</div>
 		<script>
 
@@ -140,6 +203,7 @@
 	  document.getElementById("load-screen").style.display = "none";
 	}, 2000);
 })();
+
 
 
 

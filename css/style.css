@@ -23,8 +23,8 @@
     padding: 50Px;
 }
 #canvascontainer{
-    height: 1200;
-    width: 700;
+    height: 100%;
+    width: 100%;
 	    background-image: url("../gridopacity.png");
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -43,8 +43,6 @@
     font-family: 'Roboto', sans-serif !important;
 }
 .sidenuv{
-	position: fixed;
-	height: 100%;
 	padding-right: unset!important;
 }
 .sidenuvright{
@@ -64,7 +62,7 @@
 }
 
 .loading-screen{
-	
+
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -84,15 +82,10 @@
 	}
 
 .main{
-	    z-index: -1;
+	  z-index: -1;
     position: fixed;
     margin-left: 24%;
     width: 125%;
-    /* margin-right: 45% !important; */
-    /* border: 1px solid; */
-    /* margin-top: -50px; */
-    /* margin-bottom: 5px; */
-    /* margin-right: 22% !important; */
     bottom: 0px;
     top: 0px;
 }
@@ -110,11 +103,11 @@
 .colorcontainer{
 	    padding: 15px;
     background-color: #6c757d;
-    width: 65%;
+    /* width: 65%; */
     bottom: 20px;
     position: absolute;
-    left: 30px;
-    /* right: 160px; */
+    left: 3%;
+    right: 3%;
     display: flex;
     font-size: 0.8em;
 }
@@ -124,10 +117,21 @@
 .btn-default{
 	background-color: white;
 }
-.img-thumbnail {
+.img-elem-thumbnail {
     max-width: 100px!important;
-	/* height: 400px!important; */
-	
+        height: 80px!important;
+        padding: .25rem;
+        /* background-color: #fff;
+        border: 1px solid #dee2e6; */
+        border-radius: .25rem;
+
+}
+.item1-img-elem-thumbnail {
+    max-width: 100px!important;
+        height: 300px!important;
+        padding: .25rem;
+        border-radius: .25rem;
+
 }
 #container{
 	height: 100%;
@@ -140,7 +144,7 @@
 	width: 100%;
 	min-width: 100px;
 	position: absolute;
-	   
+
 }
 .active{
 	background-color:white!important;
@@ -190,6 +194,47 @@
 	border: 0px!important;
 	background-color: #6c757d;
 	padding:5px;
-	margin-bottom: 0.5rem; 
+	margin-bottom: 0.5rem;
 }
+#main{
+	position: fixed;
+	height: 100vh;
+}
+.canavas{
+	padding-left: 0px!important;
+	padding-right: 0px!important;
+}
+.item-img-div{
+	max-width: 100px!important;
+	height: 120px!important;
+}
+.item1-img-div{
+    max-width: 100px!important;
+    height: 300px!important;
+}
+.thead-dark, #pricebody tr {
+    display:table;
+    width:100%;
 
+}
+#pricebody{
+		display:block;
+    height:30vh;
+    overflow:auto;
+}
+.pricetable{
+	overflow-x: auto;
+}
+.label{
+    font-size: 0.5rem;
+}
+.cell-ellipsis{
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+}
+/* #item1>.row{
+		position: absolute;
+    bottom: 100px;
+} */
