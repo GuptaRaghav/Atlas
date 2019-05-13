@@ -44,7 +44,7 @@ function insertNewRow(img) {
   cell.innerText = itemCounter;
   itemCounter++;
   cell = botmRow.insertCell(1);
-  name = imgPath.split("/")[8];
+  name = imgPath.split("/")[4];
   cell.classList.add('cell-ellipsis');
   cell.innerText = name.split(".")[0];
   cell = botmRow.insertCell(2);
