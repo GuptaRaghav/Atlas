@@ -22,6 +22,11 @@
     color: white;
     padding: 50Px;
 }
+.alphabannerimg{
+    background: black;
+    width: inherit;
+    padding: 50px;
+}
 #canvascontainer{
     height: 100%;
     width: 100%;
@@ -40,7 +45,7 @@
     border-top-left-radius: 0rem!important;
     border-top-right-radius: 0rem!important;
     color: black;
-    font-family: 'Roboto', sans-serif !important;
+    font-family: boldFont;
 }
 .sidenuv{
 	padding-right: unset!important;
@@ -101,7 +106,8 @@
     line-height: 1.42857;
 }
 .colorcontainer{
-	    padding: 15px;
+        padding: 15px;
+        height:95px;
     background-color: #6c757d;
     /* width: 65%; */
     bottom: 20px;
@@ -118,9 +124,10 @@
 	background-color: white;
 }
 .img-elem-thumbnail {
-    max-width: 100px!important;
+    max-width: 90px!important;
         height: 80px!important;
         padding: .25rem;
+        background-color: #b0b0b1;
         /* background-color: #fff;
         border: 1px solid #dee2e6; */
         border-radius: .25rem;
@@ -129,7 +136,8 @@
 .item1-img-elem-thumbnail {
     max-width: 100px!important;
         height: 300px!important;
-        padding: .25rem;
+        padding-left: 3rem ;
+        padding-right: 3rem;
         border-radius: .25rem;
 
 }
@@ -155,10 +163,10 @@
 	    background-color: black;
     /* height: auto; */
     /* width: 100%; */
-    right: 8px;
+    right: 15px;
     left: 28px;
     position: absolute;
-    bottom: 5px;
+    bottom: 20px;
 }
 .component{
 	     vertical-align: middle;
@@ -234,6 +242,39 @@
     text-overflow: ellipsis;
     white-space: nowrap
 }
+.tfoot{
+    display: block; 
+    background-color:
+     #6c757d; 
+     right: 25px;
+      position: absolute; 
+      bottom: 50px; 
+      width: 90%;
+      font-family: boldFont
+}
+@font-face {
+    font-family: boldFont;
+    src: url(./fonts/AkzidenzGroteskBQ-BdCnd.otf) format("opentype");;
+ }
+ @font-face {
+    font-family: normalFont;
+    src: url(./fonts/AkzidenzGroteskBQ-Cnd.otf) format("opentype");;
+ }
+ .normalFont{
+     font-family: normalFont;
+     /* font-size: 0.75rem; */
+ }
+ .boldFont{
+    font-family: boldFont;
+    /* font-size: 1rem; */
+}
+/* @font-face {
+    font-family: myFirstFontTTF;
+    src: url(./fonts/AkzidenzGroteskBQ-Cnd.otf) format("opentype");;
+ }
+ .normalFont{
+     font-family: myFirstFontTTF;
+ } */
 /* #item1>.row{
 		position: absolute;
     bottom: 100px;

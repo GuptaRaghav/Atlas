@@ -90,6 +90,7 @@ function clearCanvas() {
   var ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   images = [];
+  itemCounter = 1;
   //clear table rows also
   var a = tablePrice.tBodies[0].rows.length;
   //dont use tbody length directly in loop it will change dynamically as it del row therefore row lenght will also del 
@@ -131,11 +132,20 @@ function Imgdrop(ev) {
   nodeCopy.id = "newImg" + i; /* We cannot use the same ID */
   i++;
   var img = new Image();
+  img.height = 100;
+  img.width = 100;
   img.src = nodeCopy.src;
   img.alt = nodeCopy.alt;
   img.draggable = true;
   updateTablePrice(img);
-  this.ctx.drawImage(img, ev.offsetX, ev.offsetY);
+  if (images.length < 1)
+  this.ctx.drawImage(img, 200, 10);
+  else{
+    lastImg = images[images.length-1];
+    newX = lastImg.x + 100;
+    newY = lastImg.y;
+    this.ctx.drawImage(img, newX, newY);
+  }
   //need to keep ref of all image alnng with their previous state
   images.push({
     image: img,
