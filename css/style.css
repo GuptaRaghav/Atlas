@@ -106,8 +106,8 @@
     line-height: 1.42857;
 }
 .colorcontainer{
-        padding: 15px;
-        height:160px;
+    padding: 15px;
+    height:160px;
     background-color: #6c757d;
     /* width: 65%; */
     bottom: 20px;
@@ -160,8 +160,7 @@
 
 .banner-footer{
 	color: white;
-        background-color: black;
-        padding: 15px;
+    background-color: black;
     /* height: auto; */
     /* width: 100%; */
     right: 15px;
@@ -271,23 +270,23 @@
     font-size: 1.6em;
     /* font-size: 1rem; */
 }
-#container {
+.rightPanel-container {
     width:100%;
     text-align:center;
 }
 
-#left {
+.rightPanel-left {
     float:left;
     width:100px;
 }
 
-#center {
+.rightPanel-center {
     display: inline-block;
     margin:0 auto;
     width:100px;
 }
 
-#right {
+.rightPanel-right {
     float:right;
     width:100px;
 }
