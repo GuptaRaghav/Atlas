@@ -138,14 +138,21 @@ function Imgdrop(ev) {
   img.alt = nodeCopy.alt;
   img.draggable = true;
   updateTablePrice(img);
-  if (images.length < 1)
   this.ctx.drawImage(img, 200, 10);
-  else{
-    lastImg = images[images.length-1];
-    newX = lastImg.x + 100;
-    newY = lastImg.y;
+  newX = lastImg.x + 100;
+    newY = lastImg.y + 100;
     this.ctx.drawImage(img, newX, newY);
-  }
+  // if (images.length < 1)
+  // this.ctx.drawImage(img, 200, 10);
+  // newX = lastImg.x + 100;
+  //   newY = lastImg.y + 100;
+  //   this.ctx.drawImage(img, newX, newY);
+  // else{
+  //   lastImg = images[images.length-1];
+  //   newX = lastImg.x + 100;
+  //   newY = lastImg.y + 100;
+  //   this.ctx.drawImage(img, newX, newY);
+  // }
   //need to keep ref of all image alnng with their previous state
   images.push({
     image: img,
