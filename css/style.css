@@ -108,7 +108,7 @@
 }
 .colorcontainer{
     padding: 15px;
-    height:180px;
+    height:170px;
     background-color: #6c757d;
     /* width: 65%; */
     bottom: 20px;
@@ -163,6 +163,7 @@
 	color: white;
     background-color: black;
     padding:15px;
+    height: 170px;
     /* height: auto; */
     /* width: 100%; */
     right: 15px;
@@ -252,7 +253,6 @@
       position: absolute; 
       bottom: 50px; 
       width: 90%;
-      height: 148px;
       font-size: 1.6em;
       font-family: boldFont
 }
@@ -273,6 +273,12 @@
     font-family: boldFont;
     font-size: 1.6em;
     /* font-size: 1rem; */
+}
+.leftPanelFooteBoldrBotmElem{
+    font-family: boldFont;
+}
+.leftPanelFooterBotmElem{
+    font-family: normalFont;
 }
 .rightPanel-container {
     width:100%;
