@@ -108,7 +108,7 @@
 }
 .colorcontainer{
     padding: 15px;
-    height:125px;
+    height:180px;
     background-color: #6c757d;
     /* width: 65%; */
     bottom: 20px;
@@ -252,6 +252,7 @@
       position: absolute; 
       bottom: 50px; 
       width: 90%;
+      height: 148px;
       font-size: 1.6em;
       font-family: boldFont
 }
