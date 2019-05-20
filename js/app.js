@@ -264,12 +264,12 @@ function clearCanvas() {
 function delParticularElem(elem){
   var a = tablePrice.tBodies[0].rows.length;
   for (var i = 0; i < a; i++) {
-    if (tablePrice.tBodies[0].rows[i].cells[1].innerText === elem && tablePrice.tBodies[0].rows[i].cells[3].innerText === 1){
+    if (tablePrice.tBodies[0].rows[i].cells[1].innerText === elem && parseInt(tablePrice.tBodies[0].rows[i].cells[3].innerText) === 1){
       tablePrice.tBodies[0].deleteRow(i);
 	  calculateTotalAmount();
       return;
     }
-    else if (tablePrice.tBodies[0].rows[i].cells[1].innerText === elem && tablePrice.tBodies[0].rows[i].cells[3].innerText > 1){
+    else if (tablePrice.tBodies[0].rows[i].cells[1].innerText === elem && parseInt(tablePrice.tBodies[0].rows[i].cells[3].innerText) > 1){
       tablePrice.tBodies[0].rows[i].cells[3].innerText = tablePrice.tBodies[0].rows[i].cells[3].innerText-1;
 	  calculateTotalAmount();
       return;
