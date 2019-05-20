@@ -30,7 +30,7 @@
 #canvascontainer{
     height: 100%;
     width: 100%;
-	    background-image: url("../gridopacity.png");
+	    background-image: url("../gridimage.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -140,6 +140,7 @@
         padding-left: 3rem ;
         padding-right: 3rem;
         border-radius: .25rem;
+		cursor: pointer;
 
 }
 #container{

@@ -4,8 +4,9 @@ $canvas = $('#canvascontainer');
 var isDragging = false;
 var startX;
 var startY;
-this.canvas = document.getElementById("canvascontainer");
-this.ctx = this.canvas.getContext("2d");
+//this.canvas = document.getElementById("canvascontainer");
+canvas = new fabric.Canvas('canvascontainer');
+//this.ctx = this.canvas.getContext("2d");
 descriptionElem = document.getElementById("descriptionElem");
 sizeElem = document.getElementById("sizeElem");
 materialElem = document.getElementById("materialElem");
@@ -15,6 +16,161 @@ tableTotalPrice = document.getElementById("tableTotalPrice");
 materials = ["Wood", "Steel", "Iron"];
 total = 0;
 var itemCounter = 1;
+var imgSrc;
+rods = [];
+initialX= 1800;
+initialY = 600;
+nearestRod = [];
+twentyTwoInch = 220;
+thirtyThreeInch = 330;
+
+var canvasContainer = document.getElementById('canvas-container');
+canvasContainer.addEventListener('dragenter', handleDragEnter, false);
+canvasContainer.addEventListener('dragover', handleDragOver, false);
+canvasContainer.addEventListener('dragleave', handleDragLeave, false);
+canvasContainer.addEventListener('drop', handleDrop, false);
+canvas.hoverCursor = 'pointer';
+
+function handleDragEnter(e) {
+  // this / e.target is the current hover target.
+  this.classList.add('over');
+  console.log("DragEnter:" + e);
+}
+
+function handleDragLeave(e) {
+  this.classList.remove('over'); // this / e.target is previous target element.
+  console.log("DragLeave:"+ e);
+}
+function handleDrop(e) {
+  // this / e.target is current target element.
+  e.preventDefault();
+
+  if (e.stopPropagation) {
+    e.stopPropagation(); // stops the browser from redirecting.
+  }
+  var img = new Image();
+  img.src = draggedImg.src;
+  img.alt = draggedImg.alt;
+  img.width = draggedImg.naturalWidth;
+  img.height = draggedImg.naturalHeight;
+  var x = e.layerX;
+  var y = e.layerY;
+  checkforCanvasRods(img, x, y);
+  placeotherElemets(img,x,y);
+  for (var i = 0; i < canvas.getObjects().length; i++) {
+    // canvas.item(i).lockMovementX = true;
+    canvas.item(i).lockRotation = true;
+    // canvas.item(i).hasControls = false;
+  }
+  canvas.renderAll();
+  return false;
+}
+function handleDragOver(e) {
+  if (e.preventDefault) {
+    e.preventDefault(); // Necessary. Allows us to drop.
+  }
+
+  e.dataTransfer.dropEffect = 'copy'; // See the section on the DataTransfer object.
+
+  return false;
+}
+function addToCanvas(img, x, y) {
+  var newImage = new fabric.Image(img, {
+    width: img.width,
+    height: img.height,
+    // Set the center of the new object based on the event coordinates relative
+    // to the canvas container.
+    // left: e.layerX,
+    // top: e.layerY
+    left: x,
+    top: y
+  });
+  canvas.add(newImage);
+  canvas.renderAll();
+}
+function checkforCanvasRods(img, x, y) {
+  rodDivState = document.getElementById("item1").style.display;
+  if (rodDivState != "none" && rods.length == 0) {
+    addToCanvas(img, initialX, initialY);
+    updateTablePrice(img);
+    rods.push({
+      image: img,
+      x: initialX,
+      y: 0
+    });
+    return;
+  }
+  else if (rodDivState != "none" && rods.length > 0) {
+    for (var i = 0; i < rods.length; i++) {
+      diff = rods[i].x - x;
+      nearestRod.push({
+        img:img,
+        modDiff:Math.abs(diff),
+        diff:diff,
+        x:rods[i].x
+      });
+    }
+    nearestRod.sort((a, b) => (a.modDiff > b.modDiff) ? 1 : -1)
+    if (nearestRod[0].diff > 0)
+    x = nearestRod[0].x - twentyTwoInch
+    else
+    x = nearestRod[0].x + twentyTwoInch
+    addToCanvas(img, x, initialY);
+    updateTablePrice(img);
+    rods.push({
+      image: img,
+      x: x,
+      y: 0
+    });
+    return;
+  }
+}
+function placeotherElemets(img,x,y){
+  rodDivState = document.getElementById("item1").style.display;
+  if (rodDivState == "none" && rods.length >= 2) {
+    addToCanvas(img,x,y);
+    updateTablePrice(img);
+  }else{
+    return;
+  }
+}
+$('body').keydown(function (event) {
+  if (event.keyCode == 46) {
+    var activeObject = canvas.getActiveObject();
+    if (activeObject) {
+      if (confirm('Are you sure?')) {
+        canvas.remove(activeObject);
+        var imgSrc = activeObject.getSrc();
+        imgSrc = imgSrc.split("/");
+        imgSrc = imgSrc[imgSrc.length-1];
+        imgSrc = imgSrc.split(".")[0];
+        delParticularElem(imgSrc);
+      }
+    }
+  }
+});
+function changeColor(color) {
+  color = event.srcElement.value;
+  var activeObject = canvas.getActiveObject();
+  if (activeObject != null) {
+    var oldImgSrc = activeObject.getSrc().split("$");
+    var newImgSrc = oldImgSrc[0] + "$" + color + "@2x.png";
+    var b = oldImgSrc[1].split("@");
+    if (b[0] != "") {
+      b[0] = color;
+      newImgSrc = oldImgSrc[0] + "$" + color + "@2x.png"
+    }
+    activeObject.setSrc(newImgSrc, function () {
+      canvas.renderAll();
+    });
+
+  }
+}
+function download(event) {
+  this.href = canvas.toDataURL('png');
+  this.download = 'canvas.png'
+}
+
 $(document).ready(function () {
   $(".nav-link").click(function () {
     $(".nav-link").removeClass('active');
@@ -23,13 +179,13 @@ $(document).ready(function () {
     $(this).addClass('active');
   });
 });
-
 function dragimg(ev) {
-  ev.dataTransfer.setData("text", ev.target.id);
+  //ev.dataTransfer.setData("text", ev.target.id);
+  draggedImg = ev.srcElement;
 }
 function updateDescription(event) {
 
-  descriptionElem.innerText = event.srcElement.src.split("/")[4].split(".")[0] + " Selected";
+  descriptionElem.innerText = event.srcElement.src.split("/")[8].split(".")[0] + " Selected";
   sizeElem.innerText = " " + (Math.random() * 1000).toFixed() + "X" + (Math.random() * 1000).toFixed() + "X" + (Math.random() * 1000).toFixed();
   var material = " " + materials[Math.floor(Math.random() * materials.length)];
   materialElem.innerText = " " + material;
@@ -44,7 +200,7 @@ function insertNewRow(img) {
   cell.innerText = itemCounter;
   itemCounter++;
   cell = botmRow.insertCell(1);
-  name = imgPath.split("/")[4];
+  name = imgPath.split("/")[8];
   cell.classList.add('cell-ellipsis');
   cell.innerText = name.split(".")[0];
   cell = botmRow.insertCell(2);
@@ -58,7 +214,7 @@ function insertNewRow(img) {
 }
 function updateTablePrice(img) {
   imgPath = img.src;
-  elemSearch = (imgPath.split("/")[4]).split(".")[0];
+  elemSearch = (imgPath.split("/")[8]).split(".")[0];
   var found = false;
   if (tablePrice.tBodies[0].rows.length != 0) {
     for (var i = 0; i < tablePrice.tBodies[0].rows.length; i++) {
@@ -71,7 +227,7 @@ function updateTablePrice(img) {
         break;
       }
     }
-    if (!found){
+    if (!found) {
       insertNewRow(img);
       priceArrayelem = img.alt;
       priceArrayelem = parseFloat(priceArrayelem);
@@ -87,36 +243,51 @@ function updateTablePrice(img) {
   }
 }
 function clearCanvas() {
-  var ctx = canvas.getContext("2d");
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  // var ctx = canvas.getContext("2d");
+  // ctx.clearRect(0, 0, canvas.width, canvas.height);
+  canvas.clear();
   images = [];
+  rods = [];
   itemCounter = 1;
   //clear table rows also
   var a = tablePrice.tBodies[0].rows.length;
   //dont use tbody length directly in loop it will change dynamically as it del row therefore row lenght will also del 
   //and last row will never del thus, take initial len of row and del them one by one
-  for (var i = 0;i < a; i++){
+  for (var i = 0; i < a; i++) {
     tablePrice.deleteRow(1);
   }
   //clear table footer also
-  for (var i = 0;i < tablePrice.tFoot.rows.length; i++){
+  for (var i = 0; i < tablePrice.tFoot.rows.length; i++) {
     tablePrice.tFoot.rows[i].cells[1].innerText = "";
+  }
+}
+function delParticularElem(elem){
+  var a = tablePrice.tBodies[0].rows.length;
+  for (var i = 0; i < a; i++) {
+    if (tablePrice.tBodies[0].rows[i].cells[1].innerText === elem && tablePrice.tBodies[0].rows[i].cells[3].innerText === 1){
+      tablePrice.tBodies[0].deleteRow(i);
+      return;
+    }
+    else if (tablePrice.tBodies[0].rows[i].cells[1].innerText === elem && tablePrice.tBodies[0].rows[i].cells[3].innerText > 1){
+      tablePrice.tBodies[0].rows[i].cells[3].innerText = tablePrice.tBodies[0].rows[i].cells[3].innerText-1;
+      return;
+    }
   }
 }
 function calculateTotalAmount() {
   var qty;
   total = 0;
   for (var i = 0; i < tablePrice.tBodies[0].rows.length; i++) {
-     qty = parseInt(tablePrice.tBodies[0].rows[i].cells[3].innerText);
-     price = parseFloat(tablePrice.tBodies[0].rows[i].cells[4].innerText);
-     itemTotal  = qty * price;
-     total = total + itemTotal;
+    qty = parseInt(tablePrice.tBodies[0].rows[i].cells[3].innerText);
+    price = parseFloat(tablePrice.tBodies[0].rows[i].cells[4].innerText);
+    itemTotal = qty * price;
+    total = total + itemTotal;
     //  if (tablePrice.tBodies[0].rows.length > 1){
     //   total = total + itemTotal;
     //  }else{
     //    total = itemTotal;
     //  }
-     
+
   }
 
   tablePrice.tFoot.rows[0].cells[1].innerText = total.toFixed(2);
@@ -138,19 +309,13 @@ function Imgdrop(ev) {
   img.alt = nodeCopy.alt;
   img.draggable = true;
   updateTablePrice(img);
-  this.ctx.drawImage(img, 200, 10);
-  newX = lastImg.x + 100;
-    newY = lastImg.y + 100;
-    this.ctx.drawImage(img, newX, newY);
+  this.canvas.add(img);
   // if (images.length < 1)
   // this.ctx.drawImage(img, 200, 10);
-  // newX = lastImg.x + 100;
-  //   newY = lastImg.y + 100;
-  //   this.ctx.drawImage(img, newX, newY);
   // else{
   //   lastImg = images[images.length-1];
   //   newX = lastImg.x + 100;
-  //   newY = lastImg.y + 100;
+  //   newY = lastImg.y;
   //   this.ctx.drawImage(img, newX, newY);
   // }
   //need to keep ref of all image alnng with their previous state
@@ -165,7 +330,7 @@ function Imgdrop(ev) {
     height: img.naturalHeight
   });
   img.onload = function () {
-    _MouseEvents();
+    // _MouseEvents();
   };
 }
 function _MouseEvents() {
