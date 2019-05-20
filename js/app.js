@@ -18,7 +18,7 @@ total = 0;
 var itemCounter = 1;
 var imgSrc;
 rods = [];
-initialX= 1800;
+initialX= 1200;
 initialY = 600;
 nearestRod = [];
 twentyTwoInch = 220;
